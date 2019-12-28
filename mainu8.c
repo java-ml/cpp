@@ -5,14 +5,14 @@ const char* pass = "admin";
 int add(int* m) {
   int n = 0;
   printf("请输入存款金额：");
-  scanf_s("%d", &n);
+  scanf("%d", &n);
   *m += n;
   return *m;
 }
 int sub(int* m) {
   int n = 0;
   printf("请输入取款金额：");
-  scanf_s("%d", &n);
+  scanf("%d", &n);
   if (*m < n || n < 0) {
     printf("余额不足");
 
@@ -25,12 +25,14 @@ int sub(int* m) {
 int login() {
   int k = 3;
   char u[20], p[20];
+  char* find;
   while (k > 0) {
+	
     printf("请输入用户名：");
     fgets(u, 15, stdin);
     printf("请输入密码：");
     fgets(p, 15, stdin);
-    char* find = strchr(u, '\n');  //找出data中的"\n"
+     find= strchr(u, '\n');  //找出data中的"\n"
     if (find)
       *find = '\0'; 
 	find = strchr(p, '\n');  //找出data中的"\n"
@@ -52,7 +54,7 @@ int main() {
     int k = 1;
     while (k) {
       printf("请输入指令【1、2】：");
-      scanf_s("%d", &k);
+      scanf("%d", &k);
       if (k == 1)
         printf("余额： %d\n", add(&a));
 
